@@ -14,7 +14,10 @@ public class Programa {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
 		EntityManager em = emf.createEntityManager();
 		
-		Pessoa p = em.find(Pessoa.class, 2); // JPA busca uma pessoa do BD, converte em objeto e retorna
+		Pessoa p = new Pessoa(2, null, null); // JPA busca uma pessoa do BD, converte em objeto e retorna
+		
+		em.remove(p);
+		
 		System.out.println(p);
 		System.out.println("Pronto!");
 		em.close();
@@ -22,4 +25,4 @@ public class Programa {
 		
 	}
 
-}
+}  
